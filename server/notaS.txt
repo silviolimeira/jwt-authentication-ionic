@@ -1,0 +1,6 @@
+
+Setting up the Server
+
+$ npm init -y
+$ npm install express body-parser jsonwebtoken passport passport-jwt mongoose bcrypt cors
+
