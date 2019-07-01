@@ -24,3 +24,18 @@ $ ionic cordova run android --prod --release
 Starting our JWT Auth Ionic App 
 https://devdactic.com/jwt-authentication-ionic/
 
+ionic start devdacticAuth blank --type=angular
+cd devdacticAuth
+ 
+ionic g page pages/login
+ionic g page pages/inside
+ 
+ionic g service services/auth
+ionic g service services/authGuard
+ 
+npm i @ionic/storage
+npm i @auth0/angular-jwt
+
+ionic cordova plugin add cordova-sqlite-storage
+
+// Configuration the JWT package app/app.module.ts 
