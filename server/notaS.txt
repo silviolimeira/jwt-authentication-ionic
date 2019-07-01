@@ -1,5 +1,7 @@
 
 Setting up the Server
+https://devdactic.com/jwt-authentication-ionic-node/
+
 
 $ npm init -y
 $ npm install express body-parser jsonwebtoken passport passport-jwt mongoose bcrypt cors
@@ -22,3 +24,7 @@ or
 node src/server.js 
 or
 npm start
+
+Start mongo daemon
+$ mongod --port 27017 --replSet rs0
+
