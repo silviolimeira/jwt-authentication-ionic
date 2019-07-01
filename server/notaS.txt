@@ -4,3 +4,5 @@ Setting up the Server
 $ npm init -y
 $ npm install express body-parser jsonwebtoken passport passport-jwt mongoose bcrypt cors
 
+mkdir src/config
+touch src/config/config.js
