@@ -5,7 +5,7 @@ import { JwtHelperService } from "@auth0/angular-jwt";
 import { Storage } from "@ionic/storage";
 import { environment } from "../../environments/environment";
 import { tap, catchError } from "rxjs/operators";
-import { BehaviorSubject } from "rxjs";
+import { BehaviorSubject, Observable } from "rxjs";
 
 const TOKEN_KEY = "access_token";
 
@@ -16,6 +16,7 @@ export class AuthService {
   url = environment.url;
   user = null;
   authenticationState = new BehaviorSubject(false);
+  token = null;
 
   constructor(
     private http: HttpClient,
@@ -74,8 +75,26 @@ export class AuthService {
     });
   }
 
-  getSpecialData() {
-    return this.http.get(`${this.url}/api/special`).pipe(
+  // getSpecialData() {
+  //   return this.http.get(`${this.url}/api/special`).pipe(
+  //     catchError(e => {
+  //       let status = e.status;
+  //       if (status === 401) {
+  //         this.showAlert("You are not authorized for this!");
+  //         this.logout();
+  //       }
+  //       throw new Error(e);
+  //     })
+  //   );
+  // }
+
+  // How to use storage-data in Promise (IONIC4):
+  // https://forum.ionicframework.com/t/how-to-use-storage-data-in-promise-ionic4/156208/2
+  getSpecialData(): Observable<any> {
+    this.storage.get("token").then(token => {
+      this.token = token;
+    });
+    let response = this.http.get(`${this.url}/api/special`).pipe(
       catchError(e => {
         let status = e.status;
         if (status === 401) {
@@ -85,6 +104,7 @@ export class AuthService {
         throw new Error(e);
       })
     );
+    return response;
   }
 
   isAuthenticated() {
