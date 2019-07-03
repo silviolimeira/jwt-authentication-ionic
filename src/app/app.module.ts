@@ -18,7 +18,8 @@ export function jwtOptionsFactory(storage) {
     tokenGetter: () => {
       return storage.get("access_token");
     },
-    whitelistedDomains: ["localhost:5000"]
+    // whitelistedDomains: ["localhost:5000"]
+    whitelistedDomains: ["172.16.0.50:5000"]
   };
 }
 

@@ -16,9 +16,11 @@ Add support for android or IOS:
 $ ionic cordova platform add android --save
 $ ionic cordova platform add ios --save
 
+build the apk
 $ ionic cordova build android --prod --release
-or
-$ ionic cordova run android --prod --release
+
+run/install apk in debug mode
+$ ionic cordova run android --device
 ========================
 
 Starting our JWT Auth Ionic App 
