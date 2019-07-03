@@ -19,7 +19,8 @@ export function jwtOptionsFactory(storage) {
       return storage.get("access_token");
     },
     // whitelistedDomains: ["localhost:5000"]
-    whitelistedDomains: ["172.16.0.50:5000"]
+    whitelistedDomains: ["192.168.14.30:5000"]
+    // whitelistedDomains: ["172.16.0.50:5000"]
   };
 }
 

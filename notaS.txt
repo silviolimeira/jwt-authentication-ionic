@@ -41,3 +41,9 @@ npm i @auth0/angular-jwt
 ionic cordova plugin add cordova-sqlite-storage
 
 // Configuration the JWT package app/app.module.ts 
+
+Creating PWAs with Ionic 4
+https://alligator.io/ionic/pwas/
+
+$ npm install @angular/pwa
+$ ionic build --prod
