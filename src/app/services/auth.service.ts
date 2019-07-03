@@ -16,7 +16,7 @@ export class AuthService {
   url = environment.url;
   user = null;
   authenticationState = new BehaviorSubject(false);
-  token = null;
+  // token = null;
 
   constructor(
     private http: HttpClient,
@@ -91,10 +91,10 @@ export class AuthService {
   // How to use storage-data in Promise (IONIC4):
   // https://forum.ionicframework.com/t/how-to-use-storage-data-in-promise-ionic4/156208/2
   getSpecialData(): Observable<any> {
-    this.storage.get("token").then(token => {
-      this.token = token;
-    });
-    let response = this.http.get(`${this.url}/api/special`).pipe(
+    // this.storage.get("token").then(token => {
+    //   this.token = token;
+    // });
+    return this.http.get(`${this.url}/api/special`).pipe(
       catchError(e => {
         let status = e.status;
         if (status === 401) {
@@ -104,7 +104,6 @@ export class AuthService {
         throw new Error(e);
       })
     );
-    return response;
   }
 
   isAuthenticated() {
